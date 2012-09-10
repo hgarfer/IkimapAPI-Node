@@ -4,16 +4,16 @@ var http = require('http');
 var properties = require('./properties');
 
 //usage example
-var server = http.createServer(function(request, response) {
-	 ikimap_searchString('ruta', function(data){
-		 response.write(data);
-	 });
-});
-server.listen(3000);
+//var server = http.createServer(function(request, response) {
+//	 ikimap_searchString('ruta', function(data){
+//		 response.write(data);
+//	 });
+//});
+//server.listen(3000);
 
 
 //search for string
-function ikimap_searchString(searchString, cb){
+var ikimap_searchString = function ikimap_searchString(searchString, cb){
 	var options = {
 			host : properties.HOST,
 			port : 80,
@@ -37,3 +37,5 @@ function ikimap_searchString(searchString, cb){
 		});	
 		req.end();
 } 
+
+exports.ikimap_searchString = ikimap_searchString;
